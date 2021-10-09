@@ -11,7 +11,7 @@ import { TagModule } from './tag/tag.module';
   imports: [
     TypeOrmModule.forRoot({
       "type": "postgres",
-      "host": "localhost",
+      "host": "host.docker.internal",
       "port": 5999,
       "username": "postgres",
       "password": "mysecretpassword",

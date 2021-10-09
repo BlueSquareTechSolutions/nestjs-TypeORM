@@ -5,13 +5,16 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
+    "start:dev": "nest start --watch",
+    "start:debug": "nest start --debug --watch",
     "start:watch": "nodemon",
     "prestart:prod": "tsc",
     "start:prod": "node dist/main.js",
     "test": "jest --config=jest.json",
     "test:watch": "jest --watch --config=jest.json",
     "test:coverage": "jest --config=jest.json --coverage --coverageDirectory=coverage",
-    "start:dev:db": "./src/scripts/start-db.sh"
+    "start:dev:db": "./src/scripts/start-db.sh",
+    "build": "nest build"
   },
   "repository": {
     "type": "git",

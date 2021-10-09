@@ -9,6 +9,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.ApplicationModule = void 0;
 const common_1 = require("@nestjs/common");
 const app_controller_1 = require("./app.controller");
 const article_module_1 = require("./article/article.module");
@@ -23,9 +24,18 @@ let ApplicationModule = class ApplicationModule {
     }
 };
 ApplicationModule = __decorate([
-    common_1.Module({
+    (0, common_1.Module)({
         imports: [
-            typeorm_1.TypeOrmModule.forRoot(),
+            typeorm_1.TypeOrmModule.forRoot({
+                "type": "postgres",
+                "host": "localhost",
+                "port": 5999,
+                "username": "postgres",
+                "password": "mysecretpassword",
+                "database": "nestjsrealworld",
+                "entities": ["src/**/**.entity{.ts,.js}"],
+                "synchronize": true
+            }),
             article_module_1.ArticleModule,
             user_module_1.UserModule,
             profile_module_1.ProfileModule,

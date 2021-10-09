@@ -6,7 +6,9 @@ COPY package*.json ./
 
 RUN npm install glob rimraf
 
-RUN npm install --only=development
+RUN npm i -g @nestjs/cli
+
+RUN npm install
 
 COPY . .
 
@@ -21,6 +23,7 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
+RUN npm i -g @nestjs/cli
 RUN npm install --only=production
 
 COPY . .
