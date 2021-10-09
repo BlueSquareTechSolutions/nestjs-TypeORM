@@ -1,0 +1,11 @@
+curl -X 'POST' \
+  'http://localhost:3000/api/articles' \
+  -H 'accept: */*' \
+  -H 'Authorization: Bearer secret-key
+  -d '{"data":{
+  "username": "Vamshree",
+  "email": "vamshree@outlook.com",
+  "token": "99vams99",
+  "bio": "https://github.com/Jay2983"
+}
+}'
