@@ -43,28 +43,29 @@ The branch `prisma` implements Prisma with a mySQL database.
 
 ----------
 
-Create a new mysql database with the name `nestjsrealworld`\
+Create a new postgres database in a Docker container with the name `nestjsrealworld`\
 (or the name you specified in the ormconfig.json)
+Postgres - Official Image | Docker Hub https://hub.docker.com/_/postgres
+Installation Help - https://medium.com/@gausmann.simon/nestjs-typeorm-and-postgresql-full-example-development-and-project-setup-working-with-database-c1a2b1b11b8f
 
 Copy TypeORM config example file for database settings
 
     cp ormconfig.json.example
     
-Set mysql database settings in ormconfig.json
+Set postgres database settings in ormconfig.json
 
     {
-      "type": "mysql",
-      "host": "localhost",
-      "port": 3306,
-      "username": "your-mysql-username",
-      "password": "your-mysql-password",
+      "type": "postgres",
+      "host": "host.docker.internal",
+      "port": 5999,
+      "username": "postgres",
+      "password": "mysecretpassword",
       "database": "nestjsrealworld",
       "entities": ["src/**/**.entity{.ts,.js}"],
       "synchronize": true
     }
     
-Start local mysql server and create new database 'nestjsrealworld'
-
+Ensure the Postgres docker container is running as expected.
 On application start, tables for all entities will be created.
 
 ----------
